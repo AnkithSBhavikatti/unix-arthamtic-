@@ -155,7 +155,26 @@ while [ "$i" = "y" ]; do
         echo "$number is not a Fibonacci number."
         fi
 
-       ;; 
+       ;;
+  11)
+        echo "Enter the part value:"
+        read part
+        
+        echo "Enter the total value:"
+        read total
+        
+        # Check if total is zero to avoid division by zero
+        if [ "$total" -eq 0 ]; then
+          echo "Total value cannot be zero."
+          exit 1
+        fi
+        
+        # Calculate the percentage
+        percentage=$(echo "scale=2; ($part / $total) * 100" | bc)
+        
+        # Display the result
+        echo "The percentage is: $percentage%"   
+        ;; 
   *)
         echo "Invalid choice. Please try again."
         ;;
